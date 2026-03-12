@@ -1,0 +1,910 @@
+/* CSS Variables for consistent theming */
+
+* {
+  box-sizing: border-box; /* padding/borders stay inside widths */
+}
+
+
+
+
+:root {
+  --primary-color: #007bff;
+  --secondary-color: #6c757d;
+  --success-color: #28a745;
+  --danger-color: #dc3545;
+  --warning-color: #ffc107;
+  --light-color: #f8f9fa;
+  --dark-color: #343a40;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --border-radius: 8px;
+  --font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Image sliding animation */
+@keyframes slideImageLeftToRight {
+  0% {
+    background-position: 0% 0;
+  }
+  100% {
+    background-position: 100% 0;
+  }
+}
+
+body {
+  font-family: var(--font-family);
+  margin: 0;
+  padding: 0;
+  background: radial-gradient(
+    ellipse at 50% 100%,
+    #ff0000 0%,
+    #ff7f00 14%,
+    #ffff00 28%,
+    #00ff00 42%,
+    #0000ff 57%,
+    #4b0082 71%,
+    #9400d3 85%,
+    #000033 100%
+  );
+  min-height: 100vh;
+  color: var(--dark-color);
+  display: flex;
+  flex-direction: row;
+  font-size: 1.8em; /* Increased base font size */
+}
+
+/* Main Header Styling */
+.main-header {
+  background-color: transparent;
+  background-size: 200% 100%;
+  background-position: 0% center;
+  color: var(--dark-color);
+  padding: 2rem;
+  box-shadow: none;
+  backdrop-filter: none;
+  min-height: 200px;
+  position: relative;
+  overflow: hidden;
+  animation: slideImageLeftToRight 15s linear infinite;
+}
+
+.header-content {
+  max-width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: 400px;
+  flex-wrap: nowrap;
+  height: 100%;
+  position: relative;
+  z-index: 10;
+}
+
+/* Left Section - Logo and Left Buttons */
+.left-section {
+  display: flex;
+  align-items: center;
+  gap: 200px;
+  flex-shrink: 0;
+}
+
+.logo-section {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 10px;
+}
+
+.logo {
+  height: 100%;
+  width: auto;
+  max-width: 200px;
+  display: block;
+  object-fit: contain;
+}
+
+.left-section button {
+  padding: 2rem 2.5rem;
+  font-size: 2rem;
+  border: none;
+  background-color: var(--primary-color);
+  color: white;
+  font-weight: 700;
+  font-size: 50px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: auto;
+}
+
+.left-section button:hover {
+  background-color: #0056b3;
+  transform: translateY(-1px);
+}
+
+.left-section button:active {
+  transform: translateY(0);
+}
+
+/* Right Section - Contact and Partners */
+.right-section {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-shrink: 0;
+  padding-right: 2rem;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: var(--primary-color);
+  font-size: 1.8rem;
+  font-weight: 600;
+  padding: 1rem 1.5rem;
+  border: 2px solid var(--primary-color);
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  display: inline-block;
+  white-space: nowrap;
+  font-size: 50px;
+}
+
+.nav-link:hover {
+  background-color: var(--primary-color);
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* Old header class for backward compatibility */
+header {
+  background-color: rgba(255, 255, 255, 0.95);
+  color: var(--dark-color);
+  text-align: center;
+  padding: 6rem 3rem;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 7.5rem;
+  font-weight: 300;
+}
+
+main {
+  margin: 0 auto;
+  padding: 6rem 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+  width: 80%;
+  flex: 1;
+}
+
+section {
+  background-color: rgb(197, 216, 212);
+  padding: 20px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+  width: 100%;
+}
+
+section:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+#passenger-section {
+  display: flex;
+  flex-direction: column;
+  background-color: turquoise;
+  border: none;
+  width: 100%;
+}
+
+#check-section {
+  display: none;
+}
+
+h2 {
+  color: var(--dark-color);
+  margin-top: 0;
+  font-size: 5.4rem;
+  font-weight: 400;
+  border-bottom: 2px solid var(--primary-color);
+  padding-bottom: 1.5rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 20px;
+  margin-bottom: 3rem;
+  overflow-x: auto;
+  width: 100%;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  min-width: 180px;
+  flex: 0 0 auto;
+}
+
+label {
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: var(--dark-color);
+  font-size: 2.7rem;
+}
+
+input,
+select {
+  padding: 2.25rem;
+  border: 6px solid #e9ecef;
+  border-radius: var(--border-radius);
+  font-size: 3rem;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+button {
+  padding: 2.25rem 4.5rem;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-size: 3rem;
+  font-weight: 600;
+  transition:
+    background-color 0.2s ease,
+    transform 0.1s ease;
+  min-width: 360px;
+}
+
+button:hover {
+  background-color: #0056b3;
+  transform: translateY(-1px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+#departures-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4.5rem;
+}
+
+.departure {
+  border: 1px solid #e9ecef;
+  padding: 4.5rem;
+  border-radius: var(--border-radius);
+  background-color: var(--light-color);
+}
+
+.train {
+  margin-top: 3rem;
+  border: 1px solid #dee2e6;
+  padding: 3rem;
+  border-radius: var(--border-radius);
+  background-color: white;
+  transition: box-shadow 0.2s ease;
+}
+
+.train:hover {
+  box-shadow: var(--shadow);
+}
+
+.train h4 {
+  margin-top: 0;
+  color: var(--primary-color);
+  font-size: 3.6rem;
+}
+
+.train p {
+  margin: 1.5rem 0;
+  color: var(--secondary-color);
+  font-size: 2.7rem;
+}
+
+.train button {
+  margin-top: 1.5rem;
+}
+
+.vagon {
+  margin-top: 3rem;
+  border: 1px solid #f8f9fa;
+  padding: 3rem;
+  border-radius: var(--border-radius);
+  background-color: #f8f9fa;
+}
+
+.vagon h4 {
+  margin-top: 0;
+  color: var(--dark-color);
+  font-size: 3.6rem;
+}
+
+.seats {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.seat {
+  padding: 3rem;
+  border: 6px solid #e9ecef;
+  text-align: center;
+  cursor: pointer;
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  transition: all 0.2s ease;
+  min-height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+}
+
+.seat.occupied {
+  background-color: var(--danger-color);
+  color: white;
+  cursor: not-allowed;
+  border-color: var(--danger-color);
+}
+
+.seat.available {
+  background-color: var(--success-color);
+  color: white;
+  border-color: var(--success-color);
+}
+
+.seat.available:hover {
+  background-color: #218838;
+  transform: scale(1.05);
+}
+
+.seat.selected {
+  background-color: var(--warning-color);
+  color: var(--dark-color);
+  border-color: var(--warning-color);
+  box-shadow: 0 0 0 2px rgba(255, 193, 7, 0.3);
+}
+
+#passengers {
+  display: flex;
+  flex-direction: column;
+  gap: 4.5rem;
+  margin-bottom: 3rem;
+}
+
+.passenger {
+  border: 1px solid #e9ecef;
+  padding: 4.5rem;
+  border-radius: var(--border-radius);
+  background-color: var(--light-color);
+}
+
+.passenger h4 {
+  margin-top: 0;
+  color: var(--primary-color);
+  font-size: 3.6rem;
+}
+
+.passenger input,
+.passenger select {
+  margin-bottom: 2.25rem;
+  width: 100%;
+}
+
+.passenger label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: normal;
+  margin-bottom: 0;
+}
+
+#ticket-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+#ticket-actions input {
+  flex: 1;
+  min-width: 200px;
+}
+
+#ticket-info {
+  margin-top: 3rem;
+  padding: 4.5rem;
+  background-color: var(--light-color);
+  border-radius: var(--border-radius);
+  border-left: 6px solid var(--primary-color);
+}
+
+#ticket-info h3 {
+  margin-top: 0;
+  color: var(--primary-color);
+  font-size: 3.6rem;
+}
+
+#ticket-info ul {
+  padding-left: 4.5rem;
+}
+
+#ticket-info li {
+  margin-bottom: 1.5rem;
+  font-size: 2.7rem;
+}
+
+/* Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: white;
+  margin: 10% auto;
+  padding: 3rem;
+  border-radius: var(--border-radius);
+  width: 80%;
+  max-width: 800px;
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  font-size: 4rem;
+  cursor: pointer;
+}
+
+#modal-seat-selection {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+/* Calendar Modal Styles */
+.calendar-modal {
+  display: none;
+  position: fixed;
+  z-index: 1001;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.calendar-container {
+  background-color: white;
+  padding: 4rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  width: 90%;
+  max-width: 1200px;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+  gap: 3rem;
+}
+
+#calendar-title {
+  font-size: 5rem;
+  margin: 0;
+  min-width: 400px;
+  text-align: center;
+  color: var(--dark-color);
+}
+
+.calendar-btn {
+  padding: 2rem 3rem;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 2.5rem;
+  font-weight: bold;
+  transition: background-color 0.2s ease;
+  min-width: 200px;
+}
+
+.calendar-btn:hover {
+  background-color: #0056b3;
+}
+
+.calendar-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.weekday {
+  font-size: 3rem;
+  font-weight: bold;
+  text-align: center;
+  padding: 1.5rem;
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: 8px;
+}
+
+.calendar-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 1rem;
+}
+
+.calendar-day {
+  padding: 2rem;
+  font-size: 3rem;
+  border: 3px solid #e9ecef;
+  border-radius: 8px;
+  text-align: center;
+  cursor: pointer;
+  background-color: white;
+  transition: all 0.2s ease;
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.calendar-day:hover:not(.other-month):not(.disabled) {
+  background-color: var(--primary-color);
+  color: white;
+  transform: scale(1.05);
+}
+
+.calendar-day.other-month {
+  color: #ccc;
+  background-color: #f9f9f9;
+  cursor: not-allowed;
+}
+
+.calendar-day.selected {
+  background-color: var(--success-color);
+  color: white;
+  border-color: var(--success-color);
+}
+
+.calendar-day.disabled {
+  color: #ccc;
+  background-color: #f9f9f9;
+  cursor: not-allowed;
+}
+
+/* Newsletter Section */
+.newsletter-section {
+  background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+  color: white;
+  padding: 4rem;
+  text-align: center;
+  width: 100%;
+}
+
+.newsletter-section h2 {
+  color: white;
+  border-bottom-color: white;
+  margin-bottom: 2rem;
+}
+
+#newsletter-form {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+#newsletter-form .form-group {
+  min-width: 300px;
+  flex: 1;
+  margin: 0;
+}
+
+#newsletter-email {
+  width: 100%;
+  padding: 1.5rem;
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 8px;
+}
+
+#newsletter-form button {
+  padding: 1.5rem 3rem;
+  font-size: 1.5rem;
+  background-color: white;
+  color: #007bff;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+#newsletter-form button:hover {
+  background-color: #f0f0f0;
+  transform: scale(1.05);
+}
+
+/* Footer Styling */
+.main-footer {
+
+  background-color: rgba(52, 58, 64, 0.95);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: white;
+  padding: 4rem 2rem;
+  margin-top: auto;
+  box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: 1px solid #527330;
+  width: 100%;
+}
+
+.footer-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3rem;
+  align-items: center;
+}
+
+.footer-section {
+  text-align: center;
+}
+
+.footer-section h3 {
+  font-size: 3rem;
+  margin: 0 0 2rem 0;
+  color: #fff;
+}
+
+.footer-section p {
+  font-size: 2rem;
+  margin: 0;
+  color: #ccc;
+}
+
+.social-links {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.social-link {
+  display: inline-block;
+  padding: 1.5rem 3rem;
+  font-size: 2rem;
+  font-weight: 600;
+  border: 2px solid white;
+  border-radius: 8px;
+  color: white;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  min-width: 160px;
+}
+
+.social-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+}
+
+.social-link.facebook:hover {
+  background-color: #1877f2;
+  border-color: #1877f2;
+}
+
+.social-link.instagram:hover {
+  background: linear-gradient(
+    45deg,
+    #f09433 0%,
+    #e6683c 25%,
+    #dc2743 50%,
+    #cc2366 75%,
+    #bc1888 100%
+  );
+  border-color: #e1306c;
+}
+
+/* Responsive Design */
+
+/* Mobile First - Narrow Screens (up to 768px) */
+@media (max-width: 768px) {
+  body {
+    flex-direction: column;
+    font-size: 1.4em;
+  }
+
+  .form-group {
+    min-width: 100%;
+  }
+
+  .main-header {
+    padding: 1rem;
+    min-height: 120px;
+  }
+
+  .header-content {
+    gap: 1rem;
+  }
+
+  .left-section {
+    gap: 0.5rem;
+  }
+
+  .right-section {
+    padding-right: 1rem;
+    gap: 0.5rem;
+  }
+
+  main {
+    padding: 2rem 1rem;
+    gap: 2rem;
+  }
+
+  section {
+    padding: 2rem;
+  }
+
+  form {
+    gap: 1.5rem;
+  }
+}
+
+/* Tablet/Medium Screens (769px to 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  body {
+    flex-direction: column;
+    font-size: 1.6em;
+  }
+
+  .form-group {
+    min-width: 80%;
+  }
+
+  main {
+    padding: 4rem 2rem;
+  }
+
+  section {
+    padding: 3rem;
+  }
+}
+
+/* Desktop/Large Screens (1025px and above) */
+@media (min-width: 1025px) {
+  body {
+    flex-direction: column;
+    font-size: 1.8em;
+  }
+
+  .form-group {
+    min-width: 600px;
+  }
+
+  main {
+    padding: 6rem 3rem;
+  }
+
+  section {
+    padding: 6rem;
+  }
+}
+
+
+
+
+/* shestorebebi */
+.header-content {
+  gap: 400px;        /* keep original gap */
+  flex-wrap: wrap;   /* allow wrapping to prevent overflow */
+}
+
+.left-section {
+  gap: 200px;        /* keep original gap */
+  flex-wrap: wrap;   /* allow wrapping */
+}
+
+.form-group {
+  min-width: 0;  /* override fixed min-width that causes scroll */
+  flex: 1 1 auto; /* allow it to shrink */
+}
+
+#newsletter-email {
+  width: 100%;
+  box-sizing: border-box; /* padding stays inside width */
+}
+
+body {
+  overflow-x: hidden; /* hide any remaining tiny overflow */
+}
+html, body {
+  font-size: 26px;
+}
+
+.header-clock {
+  font-size: 2.5rem;        /* adjust size */
+  color: var(--dark-color); /* same as your text */
+  font-weight: bold;
+  text-align: center;
+  flex: 1;                   /* takes available space in flex */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* left | clock | right */
+  gap: 20px; /* instead of 400px */
+  flex-wrap: nowrap;
+  width: 100%;
+  padding: 0 20px; /* optional side padding */
+  box-sizing: border-box;
+}
+
+.left-section {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* instead of 200px */
+  flex-shrink: 0;
+}
+
+.header-clock {
+  flex: 1; /* takes remaining space */
+  text-align: center;
+  font-size: 2.5rem; /* adjust as needed */
+}

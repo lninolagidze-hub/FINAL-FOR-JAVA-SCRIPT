@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Train Ticket Booking</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header
+      class="main-header"
+      style="background-image: url(&quot;images/image1.jpg&quot;)"
+    >
+      <div class="header-content">
+        <div class="left-section">
+          <div class="logo-section">
+            <img src="image2.png" alt="Logo" class="logo" />
+          </div>
+          <button id="home-btn">Home</button>
+          <button id="check-ticket-btn">Check/Cancel Ticket</button>
+        </div>
+          <div class="header-clock" id="header-clock">00:00:00</div> <!-- move here -->
+        <div class="right-section">
+          <a href="#contact" class="nav-link">Contact Us</a>
+          <a href="#partners" class="nav-link">Our Partners</a>
+        </div>
+      </div>
+
+
+     
+    </header>
+    <main>
+      <!-- Search Section -->
+      <section id="search-section">
+        <h2>Search Trains</h2>
+        <form id="search-form">
+          <div class="form-group">
+            <label for="from">From:</label>
+            <select id="from" required>
+              <option value="">Nothing selected</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="to">To:</label>
+            <select id="to" required>
+              <option value="">Nothing selected</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="date">Date:</label>
+            <input
+              type="text"
+              id="date"
+              placeholder="Click to select date"
+              required
+              readonly
+            />
+          </div>
+          <div class="form-group">
+            <label for="tickets">Number of Tickets:</label>
+            <input
+              type="number"
+              id="tickets"
+              min="1"
+              max="10"
+              value="1"
+              required
+            />
+          </div>
+          <button type="submit">Search Trains</button>
+        </form>
+      </section>
+
+      <!-- Trains Section -->
+      <section id="trains-section" style="display: none">
+        <h2>Available Trains</h2>
+        <div id="trains-list"></div>
+      </section>
+
+      <!-- Passenger Details Section -->
+      <section id="passenger-section" style="display: none">
+        <h2>Passenger Details</h2>
+        <form id="passenger-form">
+          <h3>Contact Information</h3>
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" required />
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone" required />
+          </div>
+          <h3>Passenger Information</h3>
+          <div id="passengers"></div>
+          <button type="button" id="select-seats-btn">Select Seats</button>
+          <div id="invoice" style="display: none">
+            <h3>Invoice</h3>
+            <p>Total Price: <span id="total-price">0</span> GEL</p>
+            <button type="submit">Register Ticket</button>
+          </div>
+        </form>
+      </section>
+
+      <!-- Payment Section -->
+      <section id="payment-section" style="display: none">
+        <h2>Payment</h2>
+        <form id="payment-form">
+          <div class="form-group">
+            <label for="card-number">Card Number:</label>
+            <input
+              type="text"
+              id="card-number"
+              placeholder="1234 5678 9012 3456"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="expiry">Expiry Date:</label>
+            <input type="text" id="expiry" placeholder="MM/YY" required />
+          </div>
+          <div class="form-group">
+            <label for="cvv">CVV:</label>
+            <input type="text" id="cvv" placeholder="123" required />
+          </div>
+          <button type="submit">Pay</button>
+        </form>
+      </section>
+
+      <!-- Ticket Section -->
+      <section id="ticket-section" style="display: none">
+        <h2>Ticket Details</h2>
+        <div id="ticket-details"></div>
+        <button id="download-pdf">Download PDF</button>
+      </section>
+
+      <!-- Check/Cancel Section -->
+      <section id="check-section">
+        <h2>Check/Cancel Ticket</h2>
+        <div id="ticket-actions">
+          <input type="text" id="ticket-id" placeholder="Enter Ticket ID" />
+          <button id="check-status">Check Status</button>
+          <button id="cancel-ticket">Cancel Ticket</button>
+        </div>
+        <div id="ticket-info"></div>
+      </section>
+    </main>
+
+    <!-- Seat Selection Modal -->
+    <div id="seat-modal" class="modal" style="display: none">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h3>Select Seats</h3>
+        <div id="modal-train-details"></div>
+        <div id="modal-seat-selection"></div>
+        <button id="confirm-seats">Confirm Seats</button>
+      </div>
+    </div>
+
+    <!-- Calendar Modal -->
+    <div id="calendar-modal" class="calendar-modal" style="display: none">
+      <div class="calendar-container">
+        <div class="calendar-header">
+          <button id="prev-month" class="calendar-btn">◀ PREV</button>
+          <h2 id="calendar-title"></h2>
+          <button id="next-month" class="calendar-btn">NEXT ▶</button>
+        </div>
+        <div class="calendar-weekdays">
+          <div class="weekday">SUN</div>
+          <div class="weekday">MON</div>
+          <div class="weekday">TUE</div>
+          <div class="weekday">WED</div>
+          <div class="weekday">THU</div>
+          <div class="weekday">FRI</div>
+          <div class="weekday">SAT</div>
+        </div>
+        <div id="calendar-days" class="calendar-days"></div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer
+      class="main-footer"
+
+    >
+      <div class="footer-content">
+        <div class="footer-section">
+          <p>&copy; 2026 Train Ticket Booking. All rights reserved.</p>
+        </div>
+        <div class="footer-section">
+          <h3>Follow Us</h3>
+          <div class="social-links">
+            <a
+              href="https://www.facebook.com"
+              target="_blank"
+              class="social-link facebook"
+            >
+              Facebook
+            </a>
+            <a
+              href="https://www.instagram.com"
+              target="_blank"
+              class="social-link instagram"
+            >
+              Instagram
+            </a>
+          </div>
+        </div>
+        <!--  -->
+      </div>
+
+
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
